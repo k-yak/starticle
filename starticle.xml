@@ -52,7 +52,7 @@
 		<file>
 			<prefix>articles</prefix>
 			<minified>false</minified>
-			<block>1</block>
+			<block>2</block>
 		</file>
 		
 		<articles>

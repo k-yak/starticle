@@ -96,9 +96,9 @@ class FileManager{
 		
 		foreach($xml->starticle->articles->article as $article)
 		{
-			if($cpt == 0 || $cpt/$nbBlock % $nbBlock == 0)
+			if($cpt % $nbBlock == 0)
 			{
-				$fileName = $prefix.$cpt.".css";
+				$fileName = $prefix.$cpt/$nbBlock.".css";
 				if($cpt != 0) fclose($fp);
 				$fp = fopen($fileName,"wb");
 				fwrite($fp, "/*!
@@ -116,7 +116,7 @@ class FileManager{
 				{
 					fwrite($fp,"
 #starticles-infos{
-	content  : '".$size." ".$xml->host->name."';
+	content  : '".$size." ".$nbBlock." ".$xml->host->name."';
  }
 					
 .article-0#starticle-first{
@@ -129,7 +129,7 @@ class FileManager{
 				}
 				else
 				{
-					fwrite($fp,"#starticles-infos{content:".$size." ".$xml->host->name.";}.article-0#starticle-first{display:none;}.article-0#starticle-prev{display:none;}");
+					fwrite($fp,"#starticles-infos{content:".$size." ".$nbBlock." ".$xml->host->name.";}.article-0#starticle-first{display:none;}.article-0#starticle-prev{display:none;}");
 				}
 			}
 			
@@ -203,7 +203,23 @@ class FileManager{
 			
 			$cpt++;
 		}
-				
+		
+		for( $i=0 ; $i < $cpt%$nbBlock ; $i++)
+		{
+			if(!$minify)
+			{
+				fwrite($fp, "
+.article-".($cpt+$i)." {
+display: none;
+}
+");
+			}
+			else
+			{
+				fwrite($fp, ".article-".($cpt+$i)."{display:none;}");
+			}
+		}
+		
 		fclose($fp);
 	}
 }

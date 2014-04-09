@@ -6,7 +6,6 @@
  */
  
 $( document ).ready(function() {
-	var nbArticle = 1;
 	var cur = 0;
 	
 	$('body').append('<div id="starticles-infos">ahahaha</div>');
@@ -14,8 +13,9 @@ $( document ).ready(function() {
 	var infos = $("#starticles-infos").css("content");
 	infos = infos.replace(/'/g, '');
 	
-	var last = infos.split(" ")[0];
-	var url = infos.split(" ")[1];
+	var last = Math.round(infos.split(" ")[0]);
+	var nbArticle = Math.round(infos.split(" ")[1]);
+	var url = infos.split(" ")[2];
 	
 	$('#starticles-infos').remove();
 		
@@ -29,33 +29,49 @@ $( document ).ready(function() {
 	}
 	
 	$('#starticle-next').click(function (e) {
-		var p = "article-"+cur;
-		var pNew = "article-"+(cur+1);
-		$('.'+p).removeClass(p).addClass(pNew);
-		cur = cur + 1;
+		for(var i = 0 ; i < nbArticle ; ++i)
+		{
+			var p = "article-"+(cur+i);
+			var pNew = "article-"+(cur+i+nbArticle);
+			$('.'+p).removeClass(p).addClass(pNew);
+		}
+		cur = cur + nbArticle;
 		update();
 	});
 	
 	$('#starticle-prev').click(function (e) {
-		var p = "article-"+cur;
-		var pNew = "article-"+(cur-1);
-		$('.'+p).removeClass(p).addClass(pNew);
-		cur = cur - 1;
+		for(var i = 0 ; i < nbArticle ; ++i)
+		{
+			var p = "article-"+(cur+i);
+			var pNew = "article-"+(cur+i-nbArticle);
+			$('.'+p).removeClass(p).addClass(pNew);
+		}
+		cur = cur - nbArticle;
 		update();
 	});
 
 	$('#starticle-first').click(function (e) {
-		var p = "article-"+cur;
-		var pNew = "article-0";
-		$('.'+p).removeClass(p).addClass(pNew);
+		for(var i = 0 ; i < nbArticle ; ++i)
+		{
+			var p = "article-"+(cur+i);
+			var pNew = "article-"+i;
+			$('.'+p).removeClass(p).addClass(pNew);
+		}
 		cur = 0;
 		update();
 	});
 	
 	$('#starticle-last').click(function (e) {
-		var p = "article-"+cur;
-		var pNew = "article-"+last;
-		$('.'+p).removeClass(p).addClass(pNew);
+		for(var i = 0 ; i < nbArticle ; ++i)
+		{	
+			var nbArtlastPage = (last+1)%nbArticle; 
+			if(nbArtlastPage == 0)
+				nbArtlastPage = nbArticle;
+
+			var p = "article-"+(cur+i);
+			var pNew = "article-"+(last+1-nbArtlastPage+i);
+			$('.'+p).removeClass(p).addClass(pNew);
+		}
 		cur = last;
 		update();
 	});
