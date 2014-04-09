@@ -1,0 +1,84 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<snbd>
+	<host>
+		<name></name>
+	</host>
+	
+	<stati18n>
+		<file>
+			<name>stati18n.css</name>
+			<minified>false</minified>
+		</file>
+
+		<language>        
+			<text id='hello-world'>
+				<translation lang='fr'>Démonstration de Stati18n &amp; Starticle</translation>
+				<translation lang='en'>Stati18n &amp; Starticle demonstration</translation>
+			</text>
+
+			<text id='message' article="false">
+				<translation lang='fr'>Salut salut</translation>
+				<translation lang='en'>Hello hello</translation>
+			</text>
+
+			<text id='title-article' article="true">
+				<translation lang='fr'>Salut lorem 1</translation>
+				<translation lang='en'>Hello lorem 1</translation>
+			</text>
+			
+			<text id='title-article2' article="true">
+				<translation lang='fr'>Salut lorem 2</translation>
+				<translation lang='en'>Hello lorem 2</translation>
+			</text>
+			
+			<text id='title-article3' article="true">
+				<translation lang='fr'>Salut lorem 3</translation>
+				<translation lang='en'>Hello lorem 3</translation>
+			</text>
+			
+			<text id='lorem1' article="true">
+				<translation lang='fr'>french : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</translation>
+				<translation lang='en'>english : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</translation>
+			</text>
+			
+			<text id='lorem2' article="true">
+				<translation lang='fr'>french : Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</translation>
+				<translation lang='en'>english : Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</translation>
+			</text>
+		</language>
+	</stati18n>
+		
+	<starticle>
+		<file>
+			<prefix>articles</prefix>
+			<minified>false</minified>
+			<block>1</block>
+		</file>
+		
+		<articles>
+			<article>
+				<textId id="t1">title-article</textId>
+				<textId id="p1">lorem1</textId>
+				<textId id="p2">lorem2</textId>
+				<text id="author">Florian Rotagnon</text>
+				<image id="img1">image1</image>
+			</article>
+			
+			<article>
+				<textId id="t1">title-article2</textId>
+				<textId id="p1">lorem2</textId>
+				<textId id="p2">lorem1</textId>
+				<image id="img1">image2</image>
+			</article>
+			
+			<article>
+				<textId id="t1">title-article3</textId>
+				<textId id="p1">lorem1</textId>
+				<textId id="p2">lorem1</textId>
+				<image id="img1">image3</image>
+			</article>
+		</articles>
+	</starticle>
+
+</snbd>
+
